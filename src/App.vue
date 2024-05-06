@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider :locale="zhCN">
+  <a-config-provider>
     <router-view />
   </a-config-provider>
 </template>
@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 // import { computed } from 'vue';
 // import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
-import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
+// import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
 // import useLocale from '@/hooks/locale';
 
 // const { currentLocale } = useLocale();
