@@ -21,7 +21,6 @@ const useRegisterStore = defineStore('register', {
       name: '',
       gender: null,
       phoneNumber: '',
-      email: '',
       password: '',
       validateCode: '',
     },
@@ -38,7 +37,6 @@ const useRegisterStore = defineStore('register', {
             name: this.registerFormInfo.name,
             gender: this.registerFormInfo.gender!,
             phone: this.registerFormInfo.phoneNumber,
-            email: this.registerFormInfo.email,
             password: this.registerFormInfo.password,
             validate_code: this.registerFormInfo.validateCode,
           };

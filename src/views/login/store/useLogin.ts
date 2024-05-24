@@ -22,7 +22,7 @@ const useLoginStore = defineStore('login', {
     setIsRegister(newVal: boolean) {
       this.isRegister = newVal;
     },
-    handleLogin(phoneLoginRef: any, emailLoginRef: any) {
+    handleLogin(phoneLoginRef: any) {
       switch (this.loginMethod) {
         case LoginMethod.phone:
           phoneLoginRef.validate().then((ValidatedError: ValidatedError) => {
@@ -31,24 +31,6 @@ const useLoginStore = defineStore('login', {
             } else {
               const oPostData = {
                 phone: this.loginFormInfo.phoneNumber,
-                password: this.loginFormInfo.password,
-              };
-              const res: Promise<LoginResponse> = ssoLogin(oPostData);
-              res.then((response) => {
-                if (response !== null) {
-                  Message.success(i18n.global.t('login.success'));
-                }
-              });
-            }
-          });
-          break;
-        case LoginMethod.email:
-          emailLoginRef.validate().then((ValidatedError: ValidatedError) => {
-            if (ValidatedError) {
-              return;
-            } else {
-              const oPostData = {
-                email: this.loginFormInfo.email,
                 password: this.loginFormInfo.password,
               };
               const res: Promise<LoginResponse> = ssoLogin(oPostData);

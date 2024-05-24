@@ -5,7 +5,6 @@ export interface RegisterRequest {
   name: string;
   gender: Gender;
   phone: string;
-  email: string;
   password: string;
   validate_code: string;
 }

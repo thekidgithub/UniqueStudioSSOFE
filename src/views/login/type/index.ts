@@ -25,7 +25,6 @@ export interface RegisterFormInfo {
   name: string;
   gender: Gender | null;
   phoneNumber: string;
-  email: string;
   password: string;
   validateCode: string;
 }
