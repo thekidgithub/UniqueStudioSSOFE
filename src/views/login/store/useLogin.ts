@@ -8,6 +8,8 @@ import i18n from '@/locale';
 
 import { LoginMethod, LoginStore } from '../type';
 
+import router from '@/router';
+
 const useLoginStore = defineStore('login', {
   state: (): LoginStore => ({
     loginFormInfo: {
@@ -37,6 +39,7 @@ const useLoginStore = defineStore('login', {
               res.then((response) => {
                 if (response !== null) {
                   Message.success(i18n.global.t('login.success'));
+                  router.push('/user')
                 }
               });
             }

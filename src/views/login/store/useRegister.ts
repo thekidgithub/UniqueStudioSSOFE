@@ -15,6 +15,8 @@ import i18n from '@/locale';
 
 import { RegisterStore } from '../type';
 
+import router from '@/router';
+
 const useRegisterStore = defineStore('register', {
   state: (): RegisterStore => ({
     registerFormInfo: {
@@ -23,6 +25,7 @@ const useRegisterStore = defineStore('register', {
       phoneNumber: '',
       password: '',
       validateCode: '',
+      email: ''
     },
     isSendValidateCode: false,
     buttonContent: i18n.global.t('register.getValidateCode'),
@@ -39,11 +42,13 @@ const useRegisterStore = defineStore('register', {
             phone: this.registerFormInfo.phoneNumber,
             password: this.registerFormInfo.password,
             validate_code: this.registerFormInfo.validateCode,
+            email: this.registerFormInfo.email
           };
           const res: Promise<RegisterResponse> = register(oPostData);
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('register.success'));
+              router.push('/user')
             }
           });
         }
@@ -66,6 +71,7 @@ const useRegisterStore = defineStore('register', {
                 Message.success(
                   i18n.global.t('register.getValidateCode.success'),
                 );
+
               }
             });
             this.isSendValidateCode = true;

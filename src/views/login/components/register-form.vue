@@ -66,6 +66,28 @@
       >
     </a-form-item>
     <a-form-item
+      field="email"
+      hide-label
+      :rules="[
+        { required: true, message: $t('login.form.email.errMsg') },
+        {
+          match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+          message: $t('login.form.email.formatErr'),
+        },
+      ]"
+    >
+      <a-input
+        v-model="registerFormInfo.email"
+        size="large"
+        :placeholder="$t('register.form.email')"
+        allow-clear
+      >
+        <template #prefix>
+          <Icon-email />
+        </template>
+      </a-input>
+    </a-form-item>
+    <a-form-item
       field="password"
       hide-label
       :rules="[

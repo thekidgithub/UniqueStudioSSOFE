@@ -2,8 +2,11 @@
   <div class="login-wrapper">
     <div class="login-form-body flex flex-col justify-center items-center">
       <div class="login-form-title mb-4">{{ $t('login.form.title') }}</div>
-      <a-popover position="right">
+      <a-popover position="bottom">
         <div class="login-form-sub-title mb-4">{{ '什么是sso系统' }}</div>
+        <template #content>
+          <p>SSO是一种鉴权机制，允许用户使用单一凭证访问多个相关的应用（简单来说就是登录注册系统）</p>
+        </template>
       </a-popover>
       <login-form v-if="!isRegister" />
       <register-form v-if="isRegister" />

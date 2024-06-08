@@ -27,6 +27,7 @@ export interface RegisterFormInfo {
   phoneNumber: string;
   password: string;
   validateCode: string;
+  email: string;
 }
 
 export interface RegisterStore {

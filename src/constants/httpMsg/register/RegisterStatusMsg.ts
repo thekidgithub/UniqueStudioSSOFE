@@ -7,6 +7,7 @@ export interface RegisterRequest {
   phone: string;
   password: string;
   validate_code: string;
+  email: string;
 }
 
 export type RegisterResponse = HttpRes<{

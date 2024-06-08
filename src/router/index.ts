@@ -18,6 +18,7 @@ const router = createRouter({
         requiresAuth: false,
       },
     },
+    
     ...appRoutes,
     NO_PERMISSION,
   ],
