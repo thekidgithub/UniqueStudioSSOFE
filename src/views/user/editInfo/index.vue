@@ -160,7 +160,7 @@ import { Gender } from './type';
 // store
 import { useEditStore } from './store';
 import { useI18n } from 'vue-i18n';
-import { onMounted } from 'vue';
+import { watchEffect } from 'vue';
 
 const { t } = useI18n();
 
@@ -176,12 +176,11 @@ const openModel = () => {
 };
 
 const genders = ['0', '男', '女', '其他'];
-
-let data: any;
-function fetchData(): any {
+const data: any = ref(null);
+watchEffect(async () => {
   getUserInfo().then((infoData: any) => {
   console.log('infoData:', infoData);
-  const data = [{
+  data.value = [{
   label: t('edit.name'),
   value: infoData.name,
 }, {
@@ -194,14 +193,8 @@ function fetchData(): any {
   label: t('edit.email'),
   value: infoData.email,
 }];
-return data;
-  });
-}
-
-onMounted(() => {
-  data = fetchData();
+  })
 })
-
 // const data = [{
 //   label: t('edit.name'),
 //   value: 1,
