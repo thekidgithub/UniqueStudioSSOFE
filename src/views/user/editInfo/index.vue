@@ -176,19 +176,10 @@ const openModel = () => {
 
 const genders = ['0', '男', '女', '其他'];
 
-let infoData: any;
-
 function fetchData(): any {
-  getUserInfo().then((data: any) => {
-  console.log('infoData:', data);
-  infoData = data;
-  });
-}
-
-fetchData();
-console.log('outerdata:' , infoData);
-
-const data = [{
+  getUserInfo().then((infoData: any) => {
+  console.log('infoData:', infoData);
+  const data = [{
   label: t('edit.name'),
   value: infoData.name,
 }, {
@@ -201,6 +192,12 @@ const data = [{
   label: t('edit.email'),
   value: infoData.email,
 }];
+return data;
+  });
+}
+
+const data = fetchData();
+console.log(data);
 
 // const data = [{
 //   label: t('edit.name'),
