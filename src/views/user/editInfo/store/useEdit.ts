@@ -59,9 +59,6 @@ const useEditStore = defineStore('edit', {
       const res: Promise<getInfoResponse> = getInfo();
       res.then((response) => {
         if (response !== null) {
-          // Message.success(i18n.global.t('getinfo.success'));
-          console.log('res:', response.data);
-          
           return response.data;
         }
       });

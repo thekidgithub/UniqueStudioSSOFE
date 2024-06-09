@@ -33,7 +33,6 @@
     v-model:visible="isOpen"
     :hideCancel="true"
     :modal-style="{ maxHeight: '700px' }"
-    :onOk="() => handleEdit(editForm)"
     >
     <template #title>
       {{ $t('edit.changeinfo') }}
@@ -138,6 +137,16 @@
       </a-input-password>
     </a-form-item>
   </a-form>
+  <a-button
+    type="primary"
+    long
+    size="large"
+    @click="handleEdit(editForm)"
+    >{{ $t('register.form.confirm') }}</a-button
+  >
+  <template #footer>
+    {{ '' }}
+  </template>
   </a-modal>
 </template>
 
@@ -168,19 +177,35 @@ const infoData = getUserInfo();
 
 console.log('infoData:', infoData);
 
+const genders = ['0', '男', '女', '其他'];
+
 const data = [{
   label: t('edit.name'),
-  value: 'www',
+  value: infoData.name,
 }, {
   label: t('edit.gender'),
-  value: '男',
+  value: genders[infoData.gender],
 },  {
   label: t('edit.phonenumber'),
-  value: '1324567667',
+  value: infoData.phone,
 }, {
   label: t('edit.email'),
-  value: '124324@eedsf'
+  value: infoData.email,
 }];
+
+// const data = [{
+//   label: t('edit.name'),
+//   value: 1,
+// }, {
+//   label: t('edit.gender'),
+//   value: 1,
+// },  {
+//   label: t('edit.phonenumber'),
+//   value: 1,
+// }, {
+//   label: t('edit.email'),
+//   value: 1,
+// }];
 </script>
 
 <style scoped lang="less"></style>
