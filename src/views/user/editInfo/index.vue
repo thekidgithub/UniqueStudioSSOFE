@@ -14,7 +14,7 @@
           layout="inline-vertical" 
           :label-style="{fontSize: '16px', fontWeight: 'bold', marginTop: '15px', marginRight: '100px'}"
           :value-style="{fontSize: '16px'}">
-          <>
+          
           <a-descriptions-item v-for="item of data" :label="item.label" :span="1">
             {{ item.value }}
           </a-descriptions-item>
