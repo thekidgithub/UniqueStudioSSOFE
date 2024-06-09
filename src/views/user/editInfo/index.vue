@@ -166,7 +166,7 @@ const openModel = () => {
 
 const infoData = getUserInfo();
 
-// console.log(infoData);
+console.log('infoData:', infoData);
 
 const data = [{
   label: t('edit.name'),

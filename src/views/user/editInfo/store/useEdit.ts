@@ -60,7 +60,7 @@ const useEditStore = defineStore('edit', {
       res.then((response) => {
         if (response !== null) {
           // Message.success(i18n.global.t('getinfo.success'));
-          console.log(res);
+          console.log('res:', res);
           
           return res;
         }
