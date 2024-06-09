@@ -9,8 +9,8 @@ export async function edit(
   data: EditRequest,
 ): Promise<EditResponse> {
   const res: EditResponse = await request({
-    url: '/v1/register',//to change
-    method: 'POST',
+    url: 'v1/user/my',
+    method: 'PUT',
     data,
   });
   return res;

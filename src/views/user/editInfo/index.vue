@@ -1,5 +1,5 @@
 <template>
-  <div class="w-5/6 h-1/3 bg-white m-5 flex">
+  <div class="w-5/6 h-2/5 bg-white m-5 flex">
     <div class="w-1/5 h-full flex">
       <a-avatar :style="{ backgroundColor: '#3370ff' }" class="mt-16 ml-16" :size="200">
         <IconUser />
@@ -20,13 +20,20 @@
         </a-descriptions>
       </a-space>
     </div>
+    <a-button 
+      type="primary" 
+      size="large" 
+      class="float-right" 
+      @click="openModel"
+      >
+        {{ $t('edit.change') }}
+      </a-button>
   </div>
-  <a-button type="primary" size="large" class="float-right mr-72" @click="openModel">{{ $t('edit.change') }}</a-button>
   <a-modal
     v-model:visible="isOpen"
     :hideCancel="true"
     :modal-style="{ maxHeight: '700px' }"
-    :onOk="() => handleEdit(editFormInfo)"
+    :onOk="() => handleEdit(editForm)"
     >
     <template #title>
       {{ $t('edit.changeinfo') }}
