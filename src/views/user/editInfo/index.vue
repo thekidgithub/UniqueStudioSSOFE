@@ -160,6 +160,7 @@ import { Gender } from './type';
 // store
 import { useEditStore } from './store';
 import { useI18n } from 'vue-i18n';
+import { onMounted } from 'vue';
 
 const { t } = useI18n();
 
@@ -176,6 +177,7 @@ const openModel = () => {
 
 const genders = ['0', '男', '女', '其他'];
 
+let data: any;
 function fetchData(): any {
   getUserInfo().then((infoData: any) => {
   console.log('infoData:', infoData);
@@ -196,8 +198,9 @@ return data;
   });
 }
 
-const data = fetchData();
-console.log(data);
+onMounted(() => {
+  data = fetchData();
+})
 
 // const data = [{
 //   label: t('edit.name'),
