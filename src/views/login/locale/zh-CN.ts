@@ -47,4 +47,5 @@ export default {
   'edit.email': '邮箱',
   'edit.change': '修改',
   'edit.changeinfo': '修改信息',
+  'edit.success': '编辑成功'
 };

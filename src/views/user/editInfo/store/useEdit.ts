@@ -49,7 +49,9 @@ const useEditStore = defineStore('edit', {
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('edit.success'));
-              router.push('/user/edit-info')
+              router.push('/user/edit-info').then(() => {
+                router.go(0);
+              });
             }
           });
         }
