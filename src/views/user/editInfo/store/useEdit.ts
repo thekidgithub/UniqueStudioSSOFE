@@ -55,14 +55,16 @@ const useEditStore = defineStore('edit', {
         }
       });
     },
-    getUserInfo(): any {
-      const res: Promise<getInfoResponse> = getInfo();
-      res.then((response) => {
-        if (response !== null) {
-          console.log('resopnse:', response);
-          console.log('resopnse.data', response.data);
-          return response.data;
-        }
+    getUserInfo(): Promise<any> {
+      return new Promise((resolve, reject) => {
+        const res: Promise<getInfoResponse> = getInfo();
+        res.then((response) => {
+          if (response !== null) {
+            console.log('response:', response);
+            console.log('response.data', response.data);
+            resolve(response.data);
+          }
+        }).catch(reject);
       });
     }
   },
