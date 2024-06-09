@@ -179,7 +179,6 @@ const genders = ['0', '男', '女', '其他'];
 const data: any = ref(null);
 watchEffect(async () => {
   getUserInfo().then((infoData: any) => {
-  console.log('infoData:', infoData);
   data.value = [{
   label: t('edit.name'),
   value: infoData.name,
@@ -195,19 +194,7 @@ watchEffect(async () => {
 }];
   })
 })
-// const data = [{
-//   label: t('edit.name'),
-//   value: 1,
-// }, {
-//   label: t('edit.gender'),
-//   value: 1,
-// },  {
-//   label: t('edit.phonenumber'),
-//   value: 1,
-// }, {
-//   label: t('edit.email'),
-//   value: 1,
-// }];
+
 </script>
 
 <style scoped lang="less"></style>

@@ -16,6 +16,7 @@ import { getInfo } from '@/api/getInfo';
 import i18n from '@/locale';
 
 import { EditStore } from '../type';
+import router from '@/router';
 
 const useEditStore = defineStore('edit', {
   state: (): EditStore => ({
@@ -50,6 +51,7 @@ const useEditStore = defineStore('edit', {
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('edit.success'));
+              router.replace('/user/edit-info')
             }
           });
         }
@@ -60,8 +62,6 @@ const useEditStore = defineStore('edit', {
         const res: Promise<getInfoResponse> = getInfo();
         res.then((response) => {
           if (response !== null) {
-            console.log('response:', response);
-            console.log('response.data', response.data);
             resolve(response.data);
           }
         }).catch(reject);
