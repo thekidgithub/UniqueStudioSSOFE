@@ -75,28 +75,6 @@
       </a-select>
     </a-form-item>
     <a-form-item
-      field="phoneNumber"
-      hide-label
-      :rules="[
-        { required: true, message: $t('login.form.phoneNumber.errMsg') },
-        {
-          match: /^1[3-9]\d{9}$/,
-          message: $t('login.form.phoneNumber.formatErr'),
-        },
-      ]"
-    >
-      <a-input
-        v-model="editFormInfo.phoneNumber"
-        size="large"
-        :placeholder="$t('register.form.phoneNumber')"
-        allow-clear
-      >
-        <template #prefix>
-          <icon-phone />
-        </template>
-      </a-input>
-    </a-form-item>
-    <a-form-item
       field="email"
       hide-label
       :rules="[

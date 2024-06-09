@@ -4,7 +4,6 @@ import { HttpRes } from '../_httpResTemplate';
 export interface EditRequest {
   name: string;
   gender: Gender;
-  phone: string;
   password: string;
   email: string;
 }

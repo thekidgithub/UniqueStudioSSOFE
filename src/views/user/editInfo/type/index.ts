@@ -7,7 +7,6 @@ export const enum Gender {
 export interface EditFormInfo {
   name: string;
   gender: Gender | null;
-  phoneNumber: string;
   password: string;
   email: string;
 }

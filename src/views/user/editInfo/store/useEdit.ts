@@ -23,7 +23,6 @@ const useEditStore = defineStore('edit', {
     editFormInfo: {
       name: '',
       gender: null,
-      phoneNumber: '',
       password: '',
       email: '',
     },
@@ -43,7 +42,6 @@ const useEditStore = defineStore('edit', {
           const oPostData: EditRequest = {
             name: this.editFormInfo.name,
             gender: this.editFormInfo.gender!,
-            phone: this.editFormInfo.phoneNumber,
             password: this.editFormInfo.password,
             email: this.editFormInfo.email
           };
@@ -51,7 +49,7 @@ const useEditStore = defineStore('edit', {
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('edit.success'));
-              router.replace('/user/edit-info')
+              router.push('/user/edit-info')
             }
           });
         }
