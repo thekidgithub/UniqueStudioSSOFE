@@ -38,4 +38,12 @@ export default {
   'login.banner.subSlogan2': '国际化，路由配置，状态管理应有尽有',
   'login.banner.slogan3': '接入可视化增强工具AUX',
   'login.banner.subSlogan3': '实现灵活的区块式开发',
+
+  'edit.userinfo': '基本信息',
+  'edit.name': '姓名',
+  'edit.gender': '性别',
+  'edit.phonenumber': '手机号',
+  'edit.email': '邮箱',
+  'edit.change': '修改',
+  'edit.changeinfo': '修改信息',
 };

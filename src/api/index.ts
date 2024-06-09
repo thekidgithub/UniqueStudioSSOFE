@@ -1,4 +1,4 @@
 import { register, sendValidateCode } from './register';
 import { ssoLogin } from './login';
-
-export { register, sendValidateCode, ssoLogin };
+import { edit } from './edit';
+export { register, sendValidateCode, ssoLogin, edit };
