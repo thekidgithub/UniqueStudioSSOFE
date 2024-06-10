@@ -48,7 +48,7 @@ const useRegisterStore = defineStore('register', {
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('register.success'));
-              router.push('/user')
+              router.push('/user/edit-info')
             }
           });
         }
