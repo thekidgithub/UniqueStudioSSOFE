@@ -8,7 +8,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: 'editInfo',
+      redirect: '/user/edit-info',
     },
     {
       path: '/login',

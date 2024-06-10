@@ -61,10 +61,14 @@ const useEditStore = defineStore('edit', {
       return new Promise((resolve) => {
         const res: Promise<getInfoResponse> = getInfo();
         res.then((response) => {
+          console.log('response:', response);
+          
           if (response !== null) {
             resolve(response.data);
           }
         }).catch(() => {
+          console.log('error');
+          
             router.push('/login');
         }); 
       });
