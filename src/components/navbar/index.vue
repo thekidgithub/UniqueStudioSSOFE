@@ -8,10 +8,13 @@
         <a-dropdown trigger="click">
           <a-avatar
             :size="32"
-            :style="{ marginRight: '8px', cursor: 'pointer' }"
+            :style="{ marginRight: '8px', cursor: 'pointer', backgroundColor: '#3370ff' }"
           >
-            B
+            <IconUser />
           </a-avatar>
+          <template #content>
+            <a-doption>{{ '登出' }}</a-doption>
+          </template>
         </a-dropdown>
       </li>
     </ul>

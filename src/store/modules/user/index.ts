@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
+import router from '@/router';
 
 const useUserStore = defineStore('user', {
   state: () => ({}),
