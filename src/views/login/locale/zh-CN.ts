@@ -32,6 +32,7 @@ export default {
   'register.getValidateCode.success': '验证码发送成功',
   'register.success': '注册成功',
   'register.form.confirm': '确认',
+  'logout.success': '登出成功',
 
   'login.banner.slogan1': '开箱即用的高质量模板',
   'login.banner.subSlogan1': '丰富的的页面模板，覆盖大多数典型业务场景',

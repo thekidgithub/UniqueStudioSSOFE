@@ -13,7 +13,7 @@
             <IconUser />
           </a-avatar>
           <template #content>
-            <a-doption>{{ '登出' }}</a-doption>
+            <a-doption @click="handleLogout">{{ '登出' }}</a-doption>
           </template>
         </a-dropdown>
       </li>
@@ -23,6 +23,12 @@
 
 <script setup lang="ts">
 import LogoSVG from '@/assets/svg/logo.svg';
+
+import { useLogoutStore } from '@/views/login/store';
+
+const logoutStore = useLogoutStore();
+const { handleLogout } = logoutStore;
+
 </script>
 
 <style scoped lang="less">

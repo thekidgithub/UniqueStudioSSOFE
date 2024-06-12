@@ -48,6 +48,7 @@
         v-model="editFormInfo.name"
         size="large"
         :placeholder="$t('register.form.name')"
+        :default-value="data.value[0].value"
         allow-clear
       >
         <template #prefix>
@@ -64,6 +65,7 @@
         v-model="<number>editFormInfo.gender"
         size="large"
         :placeholder="$t('register.form.gender.placeholder')"
+        :default-value="data.value[1].value"
         allow-clear
       >
         <template #prefix>
@@ -89,6 +91,7 @@
         v-model="editFormInfo.email"
         size="large"
         :placeholder="$t('register.form.email')"
+        :default-value="data.value[2].value"
         allow-clear
       >
         <template #prefix>
