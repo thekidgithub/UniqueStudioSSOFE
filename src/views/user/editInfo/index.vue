@@ -48,7 +48,7 @@
         v-model="editFormInfo.name"
         size="large"
         :placeholder="$t('register.form.name')"
-        :default-value="name"
+        :default-value="data"
         allow-clear
       >
         <template #prefix>
