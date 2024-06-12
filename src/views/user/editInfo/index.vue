@@ -48,7 +48,7 @@
         v-model="editFormInfo.name"
         size="large"
         :placeholder="$t('register.form.name')"
-        :default-value="data[0].value"
+        :default-value="name"
         allow-clear
       >
         <template #prefix>
@@ -65,7 +65,7 @@
         v-model="<number>editFormInfo.gender"
         size="large"
         :placeholder="$t('register.form.gender.placeholder')"
-        :default-value="data[1].value"
+        :default-value="gender"
         allow-clear
       >
         <template #prefix>
@@ -91,7 +91,7 @@
         v-model="editFormInfo.email"
         size="large"
         :placeholder="$t('register.form.email')"
-        :default-value="data[2].value"
+        :default-value="phone"
         allow-clear
       >
         <template #prefix>
@@ -158,6 +158,9 @@ const openModel = () => {
 
 const genders = ['0', '男', '女', '其他'];
 const data: any = ref(null);
+const name: any = ref(null);
+const gender: any= ref(null);
+const phone: any = ref(null);
 watchEffect(async () => {
   getUserInfo().then((infoData: any) => {
   data.value = [{
@@ -173,6 +176,10 @@ watchEffect(async () => {
   label: t('edit.email'),
   value: infoData.email,
 }];
+const { name: infoName, gender: infoGender, phone: infoPhone } = infoData;
+name.value = infoName;
+gender.value = infoGender;
+phone.value = infoPhone;
   })
 })
 
