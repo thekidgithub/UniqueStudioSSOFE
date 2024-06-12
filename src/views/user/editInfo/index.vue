@@ -180,6 +180,8 @@ const { name: infoName, gender: infoGender, phone: infoPhone } = infoData;
 name.value = infoName;
 gender.value = infoGender;
 phone.value = infoPhone;
+console.log(name, gender, phone);
+
   })
 })
 
