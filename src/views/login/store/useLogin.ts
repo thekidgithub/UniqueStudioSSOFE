@@ -61,6 +61,7 @@ const useLoginStore = defineStore('login', {
                 res.then((response) => {
                   if (response !== null) {
                     Message.success(i18n.global.t('login.success'));
+                    router.push('/user/edit-info')
                   }
                 });
               }

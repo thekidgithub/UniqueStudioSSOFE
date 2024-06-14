@@ -32,6 +32,11 @@
           </a-input-password>
         </a-form-item>
       </a-form>
+      <div class="flex justify-between w-full">
+        <a-checkbox checked="rememberPassword">{{
+          $t('login.form.rememberPassword')
+        }}</a-checkbox>
+  </div>
     </a-tab-pane>
     <a-tab-pane :key="LoginMethod.sms" title="验证码">
       <a-form ref="smsLoginRef" :model="loginFormInfo" layout="vertical">
@@ -87,11 +92,6 @@
       </a-form>
     </a-tab-pane>
 </a-tabs>
-  <div class="flex justify-between w-full">
-    <a-checkbox checked="rememberPassword">{{
-    $t('login.form.rememberPassword')
-  }}</a-checkbox>
-  </div>
   <a-button type="primary" long size="large" class="mt-4" @click="handleLogin(phoneLoginRef, smsLoginRef)">{{ $t('login.form.login')
     }}</a-button>
   <a-button type="text" long class="mt-2" @click="setIsRegister(true)">{{
