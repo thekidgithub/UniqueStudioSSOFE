@@ -55,7 +55,7 @@ const useLoginStore = defineStore('login', {
               } else {
                 const oPostData = {
                   phone: this.loginFormInfo.phoneNumber,
-                  validateCode: this.loginFormInfo.validateCode,
+                  validate_code: this.loginFormInfo.validateCode,
                 };
                 const res: Promise<LoginResponse> = ssoLogin(oPostData);
                 res.then((response) => {

@@ -49,7 +49,7 @@
         <a-input
           v-model="loginFormInfo.phoneNumber"
           size="large"
-          :placeholder="$t('login.form.phoneNumber')"
+          :placeholder="$t('login.form.phoneNumber.placeholder')"
           allow-clear
         >
           <template #prefix>

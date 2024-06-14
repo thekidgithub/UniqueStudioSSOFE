@@ -7,7 +7,7 @@ export interface phoneLoginRequest {
 
 export interface smsLoginRequest {
   phone: string;
-  validateCode: string;
+  validate_code: string;
 }
 
 export type LoginResponse = HttpRes<{
