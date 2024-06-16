@@ -42,7 +42,13 @@ const useLoginStore = defineStore('login', {
               res.then((response) => {
                 if (response !== null) {
                   Message.success(i18n.global.t('login.success'));
-                  router.push('/user/edit-info')
+                  const from = new URLSearchParams(window.location.search).get('from');
+                  const target = from ? 
+                                 from === 'hr.hustunique.com' || from === 'join.hustunique.com' ?
+                                 `https://${from}` : '/user/edit-info'
+                                 : '/user/edit-info';
+                  router.push(target);
+
                 }
               });
             }
