@@ -1,6 +1,6 @@
 <template>
   <div class="w-full sm:w-3/4 sm:h-2/5 bg-white mt-20 sm:ml-64 sm:min-w-900 flex flex-col sm:flex-row">
-    <div class="w-60 mt-10 sm:mt-20 sm:ml-16 mx-auto">
+    <div class="w-60 mt-10 sm:mt-16 sm:ml-16 mx-auto">
       <a-avatar :style="{ backgroundColor: '#3370ff' }" class="" :size="200">
         <IconUser />
       </a-avatar>
