@@ -7,15 +7,15 @@
       <a-layout-sider
         v-if="renderMenu"
         :width="menuWidth"
-        class="layout-sider"
+        class="layout-sider hidden sm:block"
         :style="{ paddingTop: navbar ? navbarHeight : '' }"
       >
         <div class="menu-wrapper">
           <Menu />
         </div>
       </a-layout-sider>
-      <a-layout class="layout-content" :style="pagePaddingStyle">
-        <a-layout-content>
+      <a-layout class="layout-content ">
+        <a-layout-content class="overflow-x-auto">
           <page-layout />
         </a-layout-content>
       </a-layout>
@@ -33,20 +33,13 @@ import PageLayout from './page-layout.vue';
 const appStore = useAppStore();
 const navbarHeight = `60px`;
 const navbar = computed(() => appStore.navbar);
-const hideMenu = computed(() => appStore.hideMenu);
+
 const renderMenu = computed(() => appStore.menu && !appStore.topMenu);
 const menuWidth = computed(() => {
   // 48是左侧菜单收起的宽度
   return appStore.menuCollapse ? 48 : appStore.menuWidth;
 });
-const pagePaddingStyle = computed(() => {
-  const paddingLeft =
-    renderMenu.value && !hideMenu.value
-      ? { paddingLeft: `${menuWidth.value}px` }
-      : {};
-  const paddingTop = navbar.value ? { paddingTop: navbarHeight } : {};
-  return { ...paddingLeft, ...paddingTop };
-});
+
 </script>
 
 <style scoped lang="less">

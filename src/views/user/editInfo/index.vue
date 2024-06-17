@@ -1,7 +1,7 @@
 <template>
-  <div class="w-5/6 h-2/5 bg-white m-5 flex">
-    <div class="w-1/5 h-full flex">
-      <a-avatar :style="{ backgroundColor: '#3370ff' }" class="mt-16 ml-16" :size="200">
+  <div class="w-full sm:w-3/4 sm:h-2/5 bg-white mt-20 sm:ml-64 sm:min-w-900 flex flex-col sm:flex-row">
+    <div class="w-60 mt-10 sm:mt-20 sm:ml-16 mx-auto">
+      <a-avatar :style="{ backgroundColor: '#3370ff' }" class="" :size="200">
         <IconUser />
       </a-avatar>
     </div>
@@ -10,6 +10,7 @@
         <p class="font-bold text-lg">{{ $t('edit.userinfo') }}</p>
         <a-descriptions 
           title="" 
+          class="hidden sm:block"
           size="large" 
           layout="inline-vertical" 
           :label-style="{fontSize: '16px', fontWeight: 'bold', marginTop: '15px', marginRight: '100px'}"
@@ -19,9 +20,20 @@
             {{ item.value }}
           </a-descriptions-item>
         </a-descriptions>
+        <a-descriptions 
+          title="" 
+          class="block sm:hidden"
+          size="large" 
+          :column="1"
+          :label-style="{fontSize: '16px', fontWeight: 'bold', marginTop: '15px', marginRight: '100px'}"
+          :value-style="{fontSize: '16px'}">
+          
+          <a-descriptions-item v-for="item of data" :label="item.label" :span="1">
+            {{ item.value }}
+          </a-descriptions-item>
+        </a-descriptions>
       </a-space>
-    </div>
-    <a-button 
+      <a-button 
       type="primary" 
       size="large" 
       class="float-right" 
@@ -29,6 +41,8 @@
       >
         {{ $t('edit.change') }}
       </a-button>
+    </div>
+    
   </div>
   <a-modal
     v-model:visible="isOpen"

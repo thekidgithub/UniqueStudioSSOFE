@@ -2,7 +2,12 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+
+    },
+    minWidth: {
+      900: '900px',
+    },
   },
   plugins: [],
 };
