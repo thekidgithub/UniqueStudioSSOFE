@@ -36,7 +36,6 @@ const { isRegister } = storeToRefs(loginStore);
 
   .login-form {
     &-body {
-      //height: 520px;
       width: 440px;
       padding: 48px;
     }
@@ -59,6 +58,25 @@ const { isRegister } = storeToRefs(loginStore);
       display: flex;
       justify-content: space-between;
     }
+  }
+
+  @media (max-width: 600px) {
+    .login-form-body {
+      width: 80%;
+      max-width: 100%;
+    }
+
+    .login-form-title {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>
