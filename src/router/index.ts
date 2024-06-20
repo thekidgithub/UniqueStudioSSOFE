@@ -13,8 +13,12 @@ const router = createRouter({
       beforeEnter(_to, _from, next) {
         const cookie = Cookies.get('SSO_SESSION');
         if (cookie) {
+          console.log(1);
+          
           next(); 
         } else {
+          console.log(2);
+          
           next('/login'); 
         }
       }
