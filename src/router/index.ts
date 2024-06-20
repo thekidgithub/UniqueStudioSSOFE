@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { NO_PERMISSION } from './routes/base';
 import { appRoutes } from './routes';
+import Cookies from 'js-cookie';
 import createRouteGuard from './guard';
 
 const router = createRouter({
@@ -9,6 +10,14 @@ const router = createRouter({
     {
       path: '/',
       redirect: '/user/edit-info',
+      beforeEnter(_to, _from, next) {
+        const cookie = Cookies.get('SSO_SESSION');
+        if (cookie) {
+          next(); 
+        } else {
+          next('/login'); 
+        }
+      }
     },
     {
       path: '/login',
