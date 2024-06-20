@@ -21,6 +21,8 @@ const DASHBOARD = {
       },
       beforeEnter(_to: any, _from: any, next: (arg0?: string | undefined) => void) {
         const cookie = Cookies.get('SSO_SESSION');
+        console.log(Cookies.get());
+        
         console.log('cookie1:', cookie);
         if (cookie) {
           console.log('cookie2:', cookie);
