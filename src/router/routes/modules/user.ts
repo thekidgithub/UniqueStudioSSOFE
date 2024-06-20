@@ -1,5 +1,5 @@
 import { DEFAULT_LAYOUT } from '../base';
-
+import Cookies from 'js-cookie';
 const DASHBOARD = {
   path: '/user',
   name: 'user',
@@ -19,6 +19,19 @@ const DASHBOARD = {
         locale: 'menu.user.editInfo',
         requiresAuth: true,
       },
+      beforeEnter(_to: any, _from: any, next: (arg0?: string | undefined) => void) {
+        const cookie = Cookies.get('SSO_SESSION');
+        console.log('cookie1:', cookie);
+        if (cookie) {
+          console.log('cookie2:', cookie);
+          
+          next(); 
+        } else {
+          console.log('no cookie');
+          
+          next('/login'); 
+        }
+      }
     },
   ],
 };

@@ -12,12 +12,13 @@ const router = createRouter({
       redirect: '/user/edit-info',
       beforeEnter(_to, _from, next) {
         const cookie = Cookies.get('SSO_SESSION');
+        console.log('cookie1:', cookie);
         if (cookie) {
-          console.log(1);
+          console.log('cookie2:', cookie);
           
           next(); 
         } else {
-          console.log(2);
+          console.log('no cookie');
           
           next('/login'); 
         }
