@@ -24,7 +24,6 @@ const DASHBOARD = {
         console.log('cookie1:', cookie);
         if (cookie) {
           console.log('cookie2:', cookie);
-          
           next(); 
         } else {
           console.log('no cookie');
