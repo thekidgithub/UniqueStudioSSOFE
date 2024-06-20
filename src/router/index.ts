@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { NO_PERMISSION } from './routes/base';
 import { appRoutes } from './routes';
-import Cookies from 'js-cookie';
 import createRouteGuard from './guard';
 
 const router = createRouter({
