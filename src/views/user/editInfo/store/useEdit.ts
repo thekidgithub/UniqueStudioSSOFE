@@ -64,7 +64,7 @@ const useEditStore = defineStore('edit', {
           if (response !== null) {
             resolve(response.data);
           }
-          else router.push('./login');
+          else router.push('/login');
         }).catch(() => {
           console.log('error');
         }); 
