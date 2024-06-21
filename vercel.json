@@ -2,7 +2,7 @@
   "rewrites": [{ "source": "/:path*", "destination": "/index.html" }],
   "headers": [
     {
-      "source": "/api/*",
+      "source": "/api/:path*",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
