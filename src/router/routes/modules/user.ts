@@ -1,6 +1,6 @@
-import { PingResponse } from '@/constants/httpMsg/register/PingStatusMsg';
+// import { PingResponse } from '@/constants/httpMsg/register/PingStatusMsg';
 import { DEFAULT_LAYOUT } from '../base';
-import { ping } from '@/api/ping';
+// import { ping } from '@/api/ping';
 const DASHBOARD = {
   path: '/user',
   name: 'user',
