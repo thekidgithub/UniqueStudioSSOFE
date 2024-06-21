@@ -26,9 +26,9 @@ const DASHBOARD = {
           if (response !== null) {
             next();
           }
-          else next('/login');
-        }).catch((err) => {
-          console.error(err);
+          
+        }).catch(() => {
+          next('/login');
         }); 
       }
     },
