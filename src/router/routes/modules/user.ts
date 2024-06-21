@@ -24,9 +24,10 @@ const DASHBOARD = {
         const res: Promise<PingResponse> = ping();
         res.then((response) => {
           if (response !== null) {
+            console.log(res);
             next();
           }
-          
+
         }).catch(() => {
           next('/login');
         }); 
