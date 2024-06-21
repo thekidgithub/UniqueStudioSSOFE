@@ -27,9 +27,9 @@ const DASHBOARD = {
             console.log(res);
             next();
           }
-
-        }).catch(() => {
-          next('/login');
+          else next('/login');
+        }).catch((err) => {
+          console.error(err);
         }); 
       }
     },
