@@ -15,7 +15,7 @@ export default function request<T = object>(config: AxiosRequestConfig) {
   const instance: AxiosInstance = axios.create({
     baseURL: SERVER_BASE_URL,
     timeout: 60000,
-    withCredentials: false,
+    withCredentials: true,
   });
 
   instance.interceptors.request.use(
