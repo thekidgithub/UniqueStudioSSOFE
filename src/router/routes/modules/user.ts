@@ -1,5 +1,6 @@
+import { PingResponse } from '@/constants/httpMsg/register/PingStatusMsg';
 import { DEFAULT_LAYOUT } from '../base';
-import Cookies from 'js-cookie';
+import { ping } from '@/api/ping';
 const DASHBOARD = {
   path: '/user',
   name: 'user',
@@ -20,19 +21,15 @@ const DASHBOARD = {
         requiresAuth: true,
       },
       beforeEnter(_to: any, _from: any, next: (arg0?: string | undefined) => void) {
-        const cookie = Cookies.get('SSO_SESSION');
-        console.log(Cookies.get());
-        console.log(document.cookie);
-        
-        console.log('cookie1:', cookie);
-        if (cookie) {
-          console.log('cookie2:', cookie);
-          next(); 
-        } else {
-          console.log('no cookie');
-          
-          next('/login'); 
-        }
+        const res: Promise<PingResponse> = ping();
+        res.then((response) => {
+          if (response !== null) {
+            next();
+          }
+          else next('/login');
+        }).catch((err) => {
+          console.error(err);
+        }); 
       }
     },
   ],
