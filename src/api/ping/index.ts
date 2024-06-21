@@ -6,7 +6,7 @@ import request from '../_request';
 
 export async function ping(): Promise<PingResponse> {
   const res: PingResponse = await request({
-    url: '/v1/ping',
+    url: '/ping',
     method: 'GET',
   });
   return res;
