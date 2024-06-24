@@ -44,11 +44,11 @@ const useLoginStore = defineStore('login', {
                   Message.success(i18n.global.t('login.success'));
                   const from = new URLSearchParams(window.location.search).get('from');
                   const target = from ? 
-                                 from === 'hr.hustunique.com' || from === 'join.hustunique.com' ?
+                                 from === 'hr2024.hustunique.com' || from === 'join2024.hustunique.com' ?
                                  `https://${from}` : '/user/edit-info'
                                  : '/user/edit-info';
                   router.push(target);
-                  console.log(from, target);
+                  // console.log(from, target);
                   
                 }
               });
