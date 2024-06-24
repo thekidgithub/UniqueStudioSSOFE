@@ -48,7 +48,8 @@ const useLoginStore = defineStore('login', {
                                  `https://${from}` : '/user/edit-info'
                                  : '/user/edit-info';
                   router.push(target);
-
+                  console.log(from, target);
+                  
                 }
               });
             }
