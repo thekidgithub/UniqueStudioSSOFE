@@ -41,18 +41,15 @@ const useLoginStore = defineStore('login', {
               const res: Promise<LoginResponse> = ssoLogin(oPostData);
               res.then((response) => {
                 if (response !== null) {
-                  const sso = 'sso2024.hustunique.com';
                   const hr = 'hr2024.hustunique.com';
                   const join = 'join2024.hustunique.com';
                   Message.success(i18n.global.t('login.success'));
                   const from = new URLSearchParams(window.location.search).get('from');
-                  const target = from ? 
-                                 from === hr || from === join ?
-                                 `${from}` : `${sso}/user/edit-info`
-                                 : `${sso}/user/edit-info`;
-                  router.replace(target);
-                  // console.log(from, target);
-                  
+                  if(from) {
+                    if(from === hr || from === join ) window.location.href = from; 
+                    else router.push('/user/edit-info');
+                  }
+                  else router.push('/user/edit-info');
                 }
               });
             }
