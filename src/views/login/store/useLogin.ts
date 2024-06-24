@@ -46,7 +46,7 @@ const useLoginStore = defineStore('login', {
                   Message.success(i18n.global.t('login.success'));
                   const from = new URLSearchParams(window.location.search).get('from');
                   if(from) {
-                    if(from === hr || from === join ) window.location.href = from; 
+                    if(from === hr || from === join ) window.location.href = `https://${from}`; 
                     else router.push('/user/edit-info');
                   }
                   else router.push('/user/edit-info');
