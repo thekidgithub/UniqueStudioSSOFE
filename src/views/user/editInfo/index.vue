@@ -48,7 +48,7 @@
     v-model:visible="isOpen"
     :hideCancel="true"
     :modal-style="{ maxHeight: '700px' }"
-    class="w-4/5 sm:w-auto"
+    modal-class="modal"
     >
     <template #title>
       {{ $t('edit.changeinfo') }}
@@ -198,4 +198,10 @@ watchEffect(async () => {
 
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+@media (max-width: 600px) {
+    .modal {
+      width: 80%;
+    }
+  }
+</style>
