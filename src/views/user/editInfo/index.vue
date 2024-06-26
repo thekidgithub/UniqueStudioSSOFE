@@ -47,8 +47,7 @@
   <a-modal
     v-model:visible="isOpen"
     :hideCancel="true"
-    :modal-style="{ maxHeight: '700px' }"
-    modal-class="modal"
+    :modal-style="{ maxHeight: '700px', width: small ? '300px' : '' }"
     >
     <template #title>
       {{ $t('edit.changeinfo') }}
@@ -154,6 +153,8 @@ import { Gender } from './type';
 import { useEditStore } from './store';
 import { useI18n } from 'vue-i18n';
 import { watchEffect } from 'vue';
+import { onMounted } from 'vue';
+import { onUnmounted } from 'vue';
 
 const { t } = useI18n();
 
@@ -171,6 +172,7 @@ const openModel = () => {
 const genders = ['0', '男', '女', '其他'];
 const data: any = ref(null);
 const avatarName: any = ref(null);
+const small: any = ref(null);
 
 watchEffect(async () => {
   getUserInfo().then((infoData: any) => {
@@ -196,12 +198,17 @@ watchEffect(async () => {
   })
 })
 
+const checkScreenSize = () => {
+  small.value = window.innerWidth < 600;
+} 
+
+onMounted(() => {
+  checkScreenSize();
+  window.addEventListener('resize', checkScreenSize);
+})
+
+onUnmounted(() => window.removeEventListener('resize', checkScreenSize));
 </script>
 
-<style scoped lang="less">
-@media (max-width: 600px) {
-    .modal {
-      width: 300px;
-    }
-  }
+<style scoped lang="less">  
 </style>
