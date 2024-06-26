@@ -2,7 +2,7 @@
   <div class="w-full sm:w-3/4 sm:h-2/5 bg-white mt-20 sm:ml-64 sm:min-w-900 flex flex-col sm:flex-row">
     <div class="w-60 mt-10 sm:mt-16 sm:ml-16 mx-auto">
       <a-avatar :style="{ backgroundColor: '#3370ff' }" class="ml-10 sm:ml-0" :size="160">
-        <IconUser />
+        {{ avatarName }}
       </a-avatar>
     </div>
     <div class="w-5/6 h-full m-16">
@@ -169,6 +169,8 @@ const openModel = () => {
 
 const genders = ['0', '男', '女', '其他'];
 const data: any = ref(null);
+const avatarName: any = ref(null);
+
 watchEffect(async () => {
   getUserInfo().then((infoData: any) => {
   data.value = [{
@@ -189,6 +191,7 @@ watchEffect(async () => {
   editFormInfo.value.gender = infoData.gender;
   editFormInfo.value.email = infoData.email;
 
+  avatarName.value = infoData.name;
   })
 })
 
