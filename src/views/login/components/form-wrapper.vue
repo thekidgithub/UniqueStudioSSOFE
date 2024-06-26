@@ -5,7 +5,7 @@
       <a-popover position="bottom">
         <div class="login-form-sub-title mb-4">{{ '什么是sso系统' }}</div>
         <template #content>
-          <p>SSO是一种鉴权机制，允许用户使用单一凭证访问多个相关的应用（简单来说就是登录注册系统）</p>
+          <p>SSO系统，即登录注册系统</p>
         </template>
       </a-popover>
       <login-form v-if="!isRegister" />
@@ -62,7 +62,7 @@ const { isRegister } = storeToRefs(loginStore);
 
   @media (max-width: 600px) {
     .login-form-body {
-      width: 80%;
+      width: 100%;
       max-width: 100%;
     }
 

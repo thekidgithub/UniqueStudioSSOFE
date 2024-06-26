@@ -48,6 +48,7 @@
     v-model:visible="isOpen"
     :hideCancel="true"
     :modal-style="{ maxHeight: '700px' }"
+    class="w-4/5 sm:w-auto"
     >
     <template #title>
       {{ $t('edit.changeinfo') }}
