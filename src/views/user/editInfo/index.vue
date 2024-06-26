@@ -201,7 +201,7 @@ watchEffect(async () => {
 <style scoped lang="less">
 @media (max-width: 600px) {
     .modal {
-      width: 80%;
+      width: 300px;
     }
   }
 </style>
