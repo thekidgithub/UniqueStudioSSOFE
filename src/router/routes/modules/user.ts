@@ -1,8 +1,12 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { getInfo } from '@/api/getInfo';
+import { logout } from '@/api/logout';
 import type {
   getInfoResponse
 } from '@/constants/httpMsg/register/InfoStatusMsg';
+import { LogoutResponse } from '@/constants/httpMsg/register/LogoutStatusMsg';
+import i18n from '@/locale';
+import { Message } from '@arco-design/web-vue';
 
 const DASHBOARD = {
   path: '/user',
@@ -26,10 +30,20 @@ const DASHBOARD = {
     },
   ],
   beforeEnter(_to: any, _from: any, next: (arg0?: string | undefined) => void) {
+    const logoutParam = new URLSearchParams(window.location.search).get('logout');
+    if(logoutParam === 'true') {
+      const res: Promise<LogoutResponse> = logout();
+      res.then((response) => {
+        if (response !== null) {
+          Message.success(i18n.global.t('logout.success'));
+          next('/login');
+        }
+      });
+    }
+    
     const res: Promise<getInfoResponse> = getInfo();
     res.then((response) => {
       if (response !== null) {
-        console.log(res);
         next();
       }
       else next('/login');

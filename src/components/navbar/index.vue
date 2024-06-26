@@ -35,7 +35,7 @@ const avatarName: any = ref(null);
 
 watchEffect(async () => {
   getUserInfo().then((infoData: any) => {
-    avatarName.value = infoData.name;
+    avatarName.value = infoData.name.slice(0, 1);
   })
 })
 

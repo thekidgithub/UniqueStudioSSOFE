@@ -191,7 +191,7 @@ watchEffect(async () => {
   editFormInfo.value.gender = infoData.gender;
   editFormInfo.value.email = infoData.email;
 
-  avatarName.value = infoData.name;
+  avatarName.value = infoData.name.slice(0, 1);
   })
 })
 
