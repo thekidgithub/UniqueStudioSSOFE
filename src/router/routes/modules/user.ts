@@ -1,14 +1,8 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { getInfo } from '@/api/getInfo';
-import { logout } from '@/api/logout';
-
 import type {
   getInfoResponse
 } from '@/constants/httpMsg/register/InfoStatusMsg';
-import { LogoutResponse } from '@/constants/httpMsg/register/LogoutStatusMsg';
-import i18n from '@/locale';
-import { Message } from '@arco-design/web-vue';
-
 
 const DASHBOARD = {
   path: '/user',
