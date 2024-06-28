@@ -28,7 +28,7 @@ const router = createRouter({
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('logout.success'));
-              router.push({ path: '/login', query: { logout: 'false' }});
+              router.push({ name: 'login', params: { logout: 'false' } })
             }
           });
         }
