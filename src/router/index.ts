@@ -23,12 +23,13 @@ const router = createRouter({
       },
       beforeEnter(_to: any, _from: any, next: (arg0?: string | undefined) => void) {
         const logoutParam = new URLSearchParams(window.location.search).get('logout');
+        router.replace({ name: 'login', params: { logout: 'false' } })
         if(logoutParam === 'true') {
           const res: Promise<LogoutResponse> = logout();
           res.then((response) => {
             if (response !== null) {
-              Message.success(i18n.global.t('logout.success'));
-              router.push({ name: 'login', params: { logout: 'false' } })
+            Message.success(i18n.global.t('logout.success')); 
+            next();     
             }
           });
         }
