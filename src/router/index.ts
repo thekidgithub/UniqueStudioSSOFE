@@ -28,7 +28,7 @@ const router = createRouter({
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('logout.success'));
-              next('/login?logout=false');
+              next();
             }
           });
         }
