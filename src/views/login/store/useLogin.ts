@@ -51,7 +51,6 @@ const useLoginStore = defineStore('login', {
                   }
                   else router.push('/user/edit-info');
                 }
-                else console.log(res);
                 
               });
             }

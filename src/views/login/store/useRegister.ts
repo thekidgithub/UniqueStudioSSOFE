@@ -47,13 +47,15 @@ const useRegisterStore = defineStore('register', {
           const res: Promise<RegisterResponse> = register(oPostData);
           res.then((response) => {
             if (response !== null) {
+              const hr = 'hr2024.hustunique.com';
+              const join = 'join2024.hustunique.com';
               Message.success(i18n.global.t('register.success'));
               const from = new URLSearchParams(window.location.search).get('from');
-                  const target = from ? 
-                                 from === 'hr.hustunique.com' || from === 'join.hustunique.com' ?
-                                 `https://${from}` : '/user/edit-info'
-                                 : '/user/edit-info';
-                  router.push(target);
+              if (from) {
+                if (from === hr || from === join) window.location.href = `https://${from}`;
+                else router.push('/user/edit-info');
+              }
+              else router.push('/user/edit-info');
             }
           });
         }
