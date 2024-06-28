@@ -32,19 +32,6 @@ const DASHBOARD = {
     },
   ],
   beforeEnter(_to: any, _from: any, next: (arg0?: string | undefined) => void) {
-    const logoutParam = new URLSearchParams(window.location.search).get('logout');
-    if(logoutParam === 'true') {
-      console.log('1');
-      
-      const res: Promise<LogoutResponse> = logout();
-      res.then((response) => {
-        if (response !== null) {
-          Message.success(i18n.global.t('logout.success'));
-          next('/login');
-        }
-      });
-    }
-
     const res: Promise<getInfoResponse> = getInfo();
     res.then((response) => {
       if (response !== null) {
