@@ -23,7 +23,7 @@ const router = createRouter({
       },
       beforeEnter(_to: any, _from: any, next: (arg0?: string | undefined) => void) {
         const logoutParam = new URLSearchParams(window.location.search).get('logout');
-        router.replace({ name: 'login', params: { logout: 'false' } })
+        // router.replace({ name: 'login', params: { logout: 'false' } })
         if(logoutParam === 'true') {
           const res: Promise<LogoutResponse> = logout();
           res.then((response) => {
