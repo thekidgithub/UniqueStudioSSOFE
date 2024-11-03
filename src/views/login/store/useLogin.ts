@@ -41,15 +41,16 @@ const useLoginStore = defineStore('login', {
               const res: Promise<LoginResponse> = ssoLogin(oPostData);
               res.then((response) => {
                 if (response !== null) {
-                  const hr = 'hr2024.hustunique.com';
-                  const join = 'join2024.hustunique.com';
-                  Message.success(i18n.global.t('login.success'));
-                  const from = new URLSearchParams(window.location.search).get('from');
-                  if (from) {
-                    if (from === hr || from === join) window.location.href = `https://${from}`;
-                    else router.push('/user/edit-info');
-                  }
-                  else router.push('/user/edit-info');
+                  // const hr = 'hr2024.hustunique.com';
+                  // const join = 'join2024.hustunique.com';
+                  // Message.success(i18n.global.t('login.success'));
+                  // const from = new URLSearchParams(window.location.search).get('from');
+                  // if (from) {
+                  //   if (from === hr || from === join) window.location.href = `https://${from}`;
+                  //   else router.push('/user/edit-info');
+                  // }
+                  // else router.push('/user/edit-info');
+                  window.location.href = `5173.hustunique.com`;
                 }
                 
               });
@@ -68,15 +69,16 @@ const useLoginStore = defineStore('login', {
               const res: Promise<LoginResponse> = ssoLogin(oPostData);
               res.then((response) => {
                 if (response !== null) {
-                  const hr = 'hr2024.hustunique.com';
-                  const join = 'join2024.hustunique.com';
-                  Message.success(i18n.global.t('login.success'));
-                  const from = new URLSearchParams(window.location.search).get('from');
-                  if (from) {
-                    if (from === hr || from === join) window.location.href = `https://${from}`;
-                    else router.push('/user/edit-info');
-                  }
-                  else router.push('/user/edit-info');
+                  // const hr = 'hr2024.hustunique.com';
+                  // const join = 'join2024.hustunique.com';
+                  // Message.success(i18n.global.t('login.success'));
+                  // const from = new URLSearchParams(window.location.search).get('from');
+                  // if (from) {
+                  //   if (from === hr || from === join) window.location.href = `https://${from}`;
+                  //   else router.push('/user/edit-info');
+                  // }
+                  // else router.push('/user/edit-info');
+                  window.location.href = `5173.hustunique.com`;
                 }
               });
             }
