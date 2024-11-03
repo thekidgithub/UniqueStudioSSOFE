@@ -8,7 +8,7 @@ import i18n from '@/locale';
 
 import { LoginMethod, LoginStore } from '../type';
 
-import router from '@/router';
+// import router from '@/router';
 import { ValidateCodeRequest, ValidateCodeResponse } from '@/constants/httpMsg/register/ValidateStatusMsg';
 
 const useLoginStore = defineStore('login', {

@@ -15,7 +15,7 @@ import i18n from '@/locale';
 
 import { RegisterStore } from '../type';
 
-import router from '@/router';
+// import router from '@/router';
 
 const useRegisterStore = defineStore('register', {
   state: (): RegisterStore => ({
