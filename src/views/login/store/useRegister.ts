@@ -56,7 +56,7 @@ const useRegisterStore = defineStore('register', {
               //   else router.push('/user/edit-info');
               // }
               // else router.push('/user/edit-info');
-              window.location.href = `https://5173.hustunique.com`;
+              window.location.href = `https://5173.hustgroup.com`;
             }
           });
         }
