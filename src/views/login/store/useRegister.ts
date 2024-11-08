@@ -15,7 +15,7 @@ import i18n from '@/locale';
 
 import { RegisterStore } from '../type';
 
-// import router from '@/router';
+import router from '@/router';
 
 const useRegisterStore = defineStore('register', {
   state: (): RegisterStore => ({
@@ -47,16 +47,16 @@ const useRegisterStore = defineStore('register', {
           const res: Promise<RegisterResponse> = register(oPostData);
           res.then((response) => {
             if (response !== null) {
-              // const hr = 'hr2024.hustunique.com';
-              // const join = 'join2024.hustunique.com';
-              // Message.success(i18n.global.t('register.success'));
-              // const from = new URLSearchParams(window.location.search).get('from');
-              // if (from) {
-              //   if (from === hr || from === join) window.location.href = `https://${from}`;
-              //   else router.push('/user/edit-info');
-              // }
-              // else router.push('/user/edit-info');
-              window.location.href = `https://5173.hustunique.com`;
+              const hr = 'hr2024.hustunique.com';
+              const join = 'join2024.hustunique.com';
+              Message.success(i18n.global.t('register.success'));
+              const from = new URLSearchParams(window.location.search).get('from');
+              if (from) {
+                if (from === hr || from === join) window.location.href = `https://${from}`;
+                else router.push('/user/edit-info');
+              }
+              else router.push('/user/edit-info');
+              // window.location.href = `https://5173.hustunique.com`;
             }
           });
         }
