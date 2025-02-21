@@ -139,7 +139,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
 
 // type
@@ -157,6 +157,20 @@ const registerStore = useRegisterStore();
 const { handleRegister, handleValidateCode } = registerStore;
 const { registerFormInfo, isSendValidateCode, buttonContent } =
   storeToRefs(registerStore);
+
+const handleKeyPress = (e: KeyboardEvent) => {
+if (e.key === 'Enter') {
+  handleRegister(registerForm)
+}
+};
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeyPress);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeyPress);
+});
 </script>
 
 <style lang="less" scoped>

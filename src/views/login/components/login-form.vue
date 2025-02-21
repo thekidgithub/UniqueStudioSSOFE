@@ -100,7 +100,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
 
 // type
@@ -114,6 +114,20 @@ const { loginFormInfo, loginMethod, isSendValidateCode, buttonContent } = storeT
 
 const phoneLoginRef = ref(null);
 const smsLoginRef = ref(null);
+
+const handleKeyPress = (e: KeyboardEvent) => {
+  if (e.key === 'Enter') {
+    handleLogin(phoneLoginRef, smsLoginRef)
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeyPress);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeyPress);
+});
 </script>
 
 <style lang="less" scoped>
