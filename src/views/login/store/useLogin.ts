@@ -28,6 +28,8 @@ const useLoginStore = defineStore('login', {
       this.isRegister = newVal;
     },
     handleLogin(phoneLoginRef: any, smsLoginRef: any) {
+      console.log(phoneLoginRef);
+      
       switch (this.loginMethod) {
         case LoginMethod.phone:
           phoneLoginRef.validate().then((ValidatedError: ValidatedError) => {
