@@ -92,7 +92,7 @@
       </a-form>
     </a-tab-pane>
 </a-tabs>
-  <a-button type="primary" long size="large" class="mt-4" @click="handleLogin(phoneLoginRef, smsLoginRef)">{{ $t('login.form.login')
+  <a-button ref="myButton" type="primary" long size="large" class="mt-4" @click="handleLogin(phoneLoginRef, smsLoginRef)">{{ $t('login.form.login')
     }}</a-button>
   <a-button type="text" long class="mt-2" @click="setIsRegister(true)">{{
     $t('login.form.register')
@@ -115,15 +115,19 @@ const { loginFormInfo, loginMethod, isSendValidateCode, buttonContent } = storeT
 const phoneLoginRef = ref(null);
 const smsLoginRef = ref(null);
 
+const myButton = ref<HTMLElement | null>(null);
+
 const handleKeyPress = (e: KeyboardEvent) => {
   if (e.key === 'Enter') {
     // console.log(phoneLoginRef, smsLoginRef);
     
-    handleLogin(phoneLoginRef, smsLoginRef)
+    // handleLogin(phoneLoginRef, smsLoginRef)
+    myButton.value?.click();
   }
 };
 
 onMounted(() => {
+
   window.addEventListener('keydown', handleKeyPress);
 });
 
