@@ -160,7 +160,7 @@ const { registerFormInfo, isSendValidateCode, buttonContent } =
 
 const handleKeyPress = (e: KeyboardEvent) => {
 if (e.key === 'Enter') {
-  handleRegister(registerForm)
+  handleRegister(registerForm.value)
 }
 };
 

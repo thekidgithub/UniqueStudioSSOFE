@@ -118,7 +118,6 @@ const smsLoginRef = ref(null);
 const handleKeyPress = (e: KeyboardEvent) => {
   if (e.key === 'Enter') {
       handleLogin(phoneLoginRef.value, smsLoginRef.value);
-    // handleLogin(phoneLoginRef, smsLoginRef)
   }
 };
 
