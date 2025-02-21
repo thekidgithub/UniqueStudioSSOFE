@@ -116,7 +116,11 @@ const phoneLoginRef = ref(null);
 const smsLoginRef = ref(null);
 
 const handleKeyPress = (e: KeyboardEvent) => {
+  console.log(1);
+  
   if (e.key === 'Enter') {
+    console.log(2);
+    
     handleLogin(phoneLoginRef, smsLoginRef)
   }
 };
