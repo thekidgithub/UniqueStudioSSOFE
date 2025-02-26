@@ -279,7 +279,7 @@ const genders = ['0', '男', '女', '其他'];
 const data: any = ref(null);
 const avatarName: any = ref(null);
 const small: any = ref(null);
-const role: string = ref('');
+const role: any = ref('');
 
 watchEffect(async () => {
   getUserInfo().then((infoData: any) => {

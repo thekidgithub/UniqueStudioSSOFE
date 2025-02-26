@@ -54,7 +54,7 @@ export default {
   'edit.form.phoneNumber.formatErr': '手机号格式错误',
   'edit.form.phoneNumber': '请输入手机号',
   'edit.form.joinTime.errMsg': '加入时间不能为空',
-  'edit.form.joinTime.placeholder' '请选择加入时间（A-秋招 S-春招）',
+  'edit.form.joinTime.placeholder': '请选择加入时间（A-秋招 S-春招）',
   'edit.form.group.errMsg': '组别不能为空',
   'edit.form.group.placeholder': '请选择组别',
 };
