@@ -18,7 +18,14 @@ export interface UserInfo {
   email: string;
 }
 
+export interface PermissionFormInfo {
+  phoneNumber: string;
+  joinTime: string;
+  group: string;  
+}
+
 export interface EditStore {
   editFormInfo: EditFormInfo;
   userInfo: UserInfo;
+  permissionFormInfo: PermissionFormInfo
 }

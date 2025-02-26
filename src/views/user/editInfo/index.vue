@@ -37,15 +37,25 @@
       type="primary" 
       size="large" 
       class="float-right" 
-      @click="openModel"
+      @click="openEditModel"
       >
         {{ $t('edit.change') }}
+      </a-button>
+
+      <a-button 
+      type="primary" 
+      size="large" 
+      class="float-right" 
+      
+      @click="openPermissionModel"
+      >
+        {{ $t('edit.permission') }}
       </a-button>
     </div>
     
   </div>
   <a-modal
-    v-model:visible="isOpen"
+    v-model:visible="isEditOpen"
     :hideCancel="true"
     :modal-style="{ maxHeight: '700px', width: small ? '300px' : '' }"
     >
@@ -141,6 +151,95 @@
     {{ '' }}
   </template>
   </a-modal>
+
+  <a-modal
+    v-model:visible="isPermissionOpen"
+    :hideCancel="true"
+    :modal-style="{ maxHeight: '700px', width: small ? '300px' : '' }"
+    >
+    <template #title>
+      {{ $t('edit.permission') }}
+    </template>
+    <a-form ref="permissionForm" :model="permissionFormInfo" layout="vertical">
+    <a-form-item
+      field="phoneNumber"
+      hide-label
+      :rules="[{ required: true, message: $t('register.form.phoneNumber.errMsg') },
+        {
+          match: /^1[3-9]\d{9}$/,
+          message: $t('register.form.phoneNumber.formatErr'),
+        },
+      ]"
+    >
+      <a-input
+        v-model="permissionFormInfo.phoneNumber"
+        size="large"
+        :placeholder="$t('register.form.phoneNumber')"
+        allow-clear
+      >
+        <template #prefix>
+          <icon-phone />
+        </template>
+      </a-input>
+    </a-form-item>
+    <a-form-item
+      field="joinTime"
+      hide-label
+      :rules="[{ required: true, message: $t('register.form.joinTime.errMsg') }]"
+    >
+      <a-select
+        v-model="permissionFormInfo.joinTime"
+        size="large"
+        :placeholder="$t('register.form.joinTime.placeholder')"
+        allow-clear
+      >
+        <template #prefix>
+          <icon-clock-circle />
+        </template>
+        <a-option value="2024A">2024A</a-option>
+        <a-option value="2025S">2025S</a-option>
+        <a-option value="2025A">2025A</a-option>
+        <a-option value="2026S">2026S</a-option>
+        <a-option value="2026A">2026A</a-option>
+      </a-select>
+    </a-form-item>
+    <a-form-item
+      field="group"
+      hide-label
+      :rules="[
+        { required: true, message: $t('register.form.group.errMsg') },
+      ]"
+    >
+    <a-select
+        v-model="permissionFormInfo.group"
+        size="large"
+        :placeholder="$t('register.form.group.placeholder')"
+        allow-clear
+      >
+        <template #prefix>
+          <icon-user-group />
+        </template>
+        <a-option value="web">Web</a-option>
+        <a-option value="ai">AI</a-option>
+        <a-option value="lab">Lab</a-option>
+        <a-option value="game">Game</a-option>
+        <a-option value="mobile">Mobile</a-option>
+        <a-option value="pm">PM</a-option>
+        <a-option value="design">Design</a-option>
+      </a-select>
+    </a-form-item>
+  </a-form>
+  <a-button
+    type="primary"
+    long
+    size="large"
+    @click="handlePermission(permissionForm)"
+    >{{ $t('register.form.confirm') }}</a-button
+  >
+  <template #footer>
+    {{ '' }}
+  </template>
+  </a-modal>
 </template>
 
 <script setup lang="ts">
@@ -159,14 +258,21 @@ import { onUnmounted } from 'vue';
 const { t } = useI18n();
 
 const editStore = useEditStore();
-const { handleEdit, getUserInfo } = editStore;
+const { handleEdit, getUserInfo, handlePermission } = editStore;
+
 const editForm = ref(null);
-const { editFormInfo } = storeToRefs(editStore);
+const permissionForm = ref(null);
 
-const isOpen = ref(false);
+const { editFormInfo, permissionFormInfo } = storeToRefs(editStore);
 
-const openModel = () => {
-  isOpen.value = true;
+const isEditOpen = ref(false);
+const isPermissionOpen = ref(false);
+
+const openEditModel = () => {
+  isEditOpen.value = true;
+};
+const openPermissionModel = () => {
+  isPermissionOpen.value = true;
 };
 
 const genders = ['0', '男', '女', '其他'];

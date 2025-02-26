@@ -10,13 +10,14 @@ import type {
   getInfoResponse
 } from '@/constants/httpMsg/register/InfoStatusMsg';
 
-import { edit } from '@/api';
+import { edit, permission } from '@/api';
 import { getInfo } from '@/api/getInfo';
 
 import i18n from '@/locale';
 
 import { EditStore } from '../type';
 import router from '@/router';
+import { PermissionRequest, PermissionResponse } from '@/constants/httpMsg/register/PermissionMsg';
 
 const useEditStore = defineStore('edit', {
   state: (): EditStore => ({
@@ -31,6 +32,11 @@ const useEditStore = defineStore('edit', {
       gender: null,
       phoneNumber: '',
       email: '',
+    },
+    permissionFormInfo: {
+      phoneNumber: '',
+      joinTime: '',
+      group: '',
     }
   }),
   actions: {
@@ -46,6 +52,29 @@ const useEditStore = defineStore('edit', {
             email: this.editFormInfo.email
           };
           const res: Promise<EditResponse> = edit(oPostData);
+          res.then((response) => {
+            if (response !== null) {
+              Message.success(i18n.global.t('edit.success'));
+              router.push('/user/edit-info').then(() => {
+                router.go(0);
+              });
+            }
+          });
+        }
+      });
+    },
+    handlePermission(permissionFormRef: any) {
+      permissionFormRef.validate().then((ValidatedError: ValidatedError) => {
+        if (ValidatedError) {
+          return;
+        } else {
+          const oPostData: PermissionRequest = {
+            phoneNumber: this.permissionFormInfo.phoneNumber,
+            joinTime: this.permissionFormInfo.joinTime,
+            group: this.permissionFormInfo.group,
+            role: 'member'
+          };
+          const res: Promise<PermissionResponse> = permission(oPostData);
           res.then((response) => {
             if (response !== null) {
               Message.success(i18n.global.t('edit.success'));
