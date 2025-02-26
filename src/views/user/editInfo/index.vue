@@ -45,8 +45,8 @@
       <a-button 
       type="primary" 
       size="large" 
-      class="float-right" 
-      
+      class="float-right mr-10" 
+      :disabled="role !== 'admin'"
       @click="openPermissionModel"
       >
         {{ $t('edit.permission') }}
@@ -164,17 +164,17 @@
     <a-form-item
       field="phoneNumber"
       hide-label
-      :rules="[{ required: true, message: $t('register.form.phoneNumber.errMsg') },
+      :rules="[{ required: true, message: $t('edit.form.phoneNumber.errMsg') },
         {
           match: /^1[3-9]\d{9}$/,
-          message: $t('register.form.phoneNumber.formatErr'),
+          message: $t('edit.form.phoneNumber.formatErr'),
         },
       ]"
     >
       <a-input
         v-model="permissionFormInfo.phoneNumber"
         size="large"
-        :placeholder="$t('register.form.phoneNumber')"
+        :placeholder="$t('edit.form.phoneNumber')"
         allow-clear
       >
         <template #prefix>
@@ -185,12 +185,12 @@
     <a-form-item
       field="joinTime"
       hide-label
-      :rules="[{ required: true, message: $t('register.form.joinTime.errMsg') }]"
+      :rules="[{ required: true, message: $t('edit.form.joinTime.errMsg') }]"
     >
       <a-select
         v-model="permissionFormInfo.joinTime"
         size="large"
-        :placeholder="$t('register.form.joinTime.placeholder')"
+        :placeholder="$t('edit.form.joinTime.placeholder')"
         allow-clear
       >
         <template #prefix>
@@ -207,13 +207,13 @@
       field="group"
       hide-label
       :rules="[
-        { required: true, message: $t('register.form.group.errMsg') },
+        { required: true, message: $t('edit.form.group.errMsg') },
       ]"
     >
     <a-select
         v-model="permissionFormInfo.group"
         size="large"
-        :placeholder="$t('register.form.group.placeholder')"
+        :placeholder="$t('edit.form.group.placeholder')"
         allow-clear
       >
         <template #prefix>
@@ -279,6 +279,7 @@ const genders = ['0', '男', '女', '其他'];
 const data: any = ref(null);
 const avatarName: any = ref(null);
 const small: any = ref(null);
+const role: string = ref('');
 
 watchEffect(async () => {
   getUserInfo().then((infoData: any) => {
@@ -301,6 +302,8 @@ watchEffect(async () => {
   editFormInfo.value.email = infoData.email;
 
   avatarName.value = infoData.name.slice(0, 1);
+
+  role.value = infoData.roles[0];
   })
 })
 
