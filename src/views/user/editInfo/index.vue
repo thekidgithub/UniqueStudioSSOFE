@@ -46,7 +46,7 @@
       type="primary" 
       size="large" 
       class="float-right mr-10" 
-      :disabled="!role.includes('member')"
+      :disabled="!role.includes('admin')"
       @click="openPermissionModel"
       >
         {{ $t('edit.permission') }}
