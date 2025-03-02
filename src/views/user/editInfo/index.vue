@@ -46,7 +46,7 @@
       type="primary" 
       size="large" 
       class="float-right mr-10" 
-      :disabled="role !== 'admin'"
+      :disabled="!role.includes('member')"
       @click="openPermissionModel"
       >
         {{ $t('edit.permission') }}
@@ -188,7 +188,7 @@
       :rules="[{ required: true, message: $t('edit.form.joinTime.errMsg') }]"
     >
       <a-select
-        v-model="permissionFormInfo.joinTime"
+        v-model="permissionFormInfo.joinTime as string"
         size="large"
         :placeholder="$t('edit.form.joinTime.placeholder')"
         allow-clear
@@ -211,7 +211,7 @@
       ]"
     >
     <a-select
-        v-model="permissionFormInfo.group"
+        v-model="permissionFormInfo.group as string"
         size="large"
         :placeholder="$t('edit.form.group.placeholder')"
         allow-clear
@@ -303,7 +303,7 @@ watchEffect(async () => {
 
   avatarName.value = infoData.name.slice(0, 1);
 
-  role.value = infoData.roles[0];
+  role.value = infoData.roles;
   })
 })
 
