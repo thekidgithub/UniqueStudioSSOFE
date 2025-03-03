@@ -55,7 +55,7 @@ export default {
   'edit.form.phoneNumber': '请输入手机号',
   'edit.form.joinTime.errMsg': '加入时间不能为空',
   'edit.form.joinTime.formatErr': '加入时间格式有误',
-  'edit.form.joinTime.placeholder': '请选择加入时间（格式：年份+招新名称 如2024A）（A-秋招 S-春招 C-夏令营）',
+  'edit.form.joinTime.placeholder': '加入时间(年份+招新名称 如2024A)(A-秋招 S-春招 C-夏令营)',
   'edit.form.group.errMsg': '组别不能为空',
   'edit.form.group.placeholder': '请选择组别',
   'edit.form.role.errMsg': '角色不能为空',
