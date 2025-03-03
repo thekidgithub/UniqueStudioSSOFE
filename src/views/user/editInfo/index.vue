@@ -185,10 +185,15 @@
     <a-form-item
       field="joinTime"
       hide-label
-      :rules="[{ required: true, message: $t('edit.form.joinTime.errMsg') }]"
+      :rules="[{ required: true, message: $t('edit.form.joinTime.errMsg') },
+        {
+          match: /^\d{4}[ASC]$/,
+          message: $t('edit.form.joinTime.formatErr'),
+        },
+      ]"
     >
-      <a-select
-        v-model="permissionFormInfo.joinTime as string"
+      <a-input
+        v-model="permissionFormInfo.joinTime"
         size="large"
         :placeholder="$t('edit.form.joinTime.placeholder')"
         allow-clear
@@ -196,12 +201,7 @@
         <template #prefix>
           <icon-clock-circle />
         </template>
-        <a-option value="2024A">2024A</a-option>
-        <a-option value="2025S">2025S</a-option>
-        <a-option value="2025A">2025A</a-option>
-        <a-option value="2026S">2026S</a-option>
-        <a-option value="2026A">2026A</a-option>
-      </a-select>
+      </a-input>
     </a-form-item>
     <a-form-item
       field="group"
