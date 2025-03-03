@@ -162,7 +162,7 @@
     </template>
     <a-form ref="permissionForm" :model="permissionFormInfo" layout="vertical">
     <a-form-item
-      field="phoneNumber"
+      field="phone"
       hide-label
       :rules="[{ required: true, message: $t('edit.form.phoneNumber.errMsg') },
         {
