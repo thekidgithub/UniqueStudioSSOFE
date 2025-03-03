@@ -215,7 +215,7 @@
         size="large"
         :placeholder="$t('edit.form.group.placeholder')"
         allow-clear
-      >
+    >
         <template #prefix>
           <icon-user-group />
         </template>
@@ -226,6 +226,26 @@
         <a-option value="mobile">Mobile</a-option>
         <a-option value="pm">PM</a-option>
         <a-option value="design">Design</a-option>
+      </a-select>
+    </a-form-item>
+    <a-form-item
+      field="role"
+      hide-label
+      :rules="[
+        { required: true, message: $t('edit.form.role.errMsg') },
+      ]"
+    >
+    <a-select
+        v-model="permissionFormInfo.role as string"
+        size="large"
+        :placeholder="$t('edit.form.role.placeholder')"
+        allow-clear
+    >
+        <template #prefix>
+          <icon-user />
+        </template>
+        <a-option value="member">member</a-option>
+        <a-option value="admin">admin</a-option>
       </a-select>
     </a-form-item>
   </a-form>

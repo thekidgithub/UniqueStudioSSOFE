@@ -37,6 +37,7 @@ const useEditStore = defineStore('edit', {
       phoneNumber: '',
       joinTime: '',
       group: '',
+      role: '',
     }
   }),
   actions: {
@@ -72,7 +73,7 @@ const useEditStore = defineStore('edit', {
             phoneNumber: this.permissionFormInfo.phoneNumber,
             joinTime: this.permissionFormInfo.joinTime,
             group: this.permissionFormInfo.group,
-            role: 'member'
+            role: this.permissionFormInfo.role,
           };
           const res: Promise<PermissionResponse> = permission(oPostData);
           res.then((response) => {

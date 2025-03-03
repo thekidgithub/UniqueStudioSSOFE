@@ -21,7 +21,8 @@ export interface UserInfo {
 export interface PermissionFormInfo {
   phoneNumber: string;
   joinTime: string;
-  group: string;  
+  group: string;
+  role: string;  
 }
 
 export interface EditStore {
