@@ -57,4 +57,6 @@ export default {
   'edit.form.joinTime.placeholder': '请选择加入时间（A-秋招 S-春招）',
   'edit.form.group.errMsg': '组别不能为空',
   'edit.form.group.placeholder': '请选择组别',
+  'edit.form.role.errMsg': '角色不能为空',
+  'edit.form.role.placeholder': '请选择添加后的角色'
 };
