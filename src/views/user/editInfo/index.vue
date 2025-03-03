@@ -172,7 +172,7 @@
       ]"
     >
       <a-input
-        v-model="permissionFormInfo.phoneNumber"
+        v-model="permissionFormInfo.phone"
         size="large"
         :placeholder="$t('edit.form.phoneNumber')"
         allow-clear

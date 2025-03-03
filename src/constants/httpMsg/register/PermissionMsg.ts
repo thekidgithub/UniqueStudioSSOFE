@@ -1,7 +1,7 @@
 import { HttpRes } from '../_httpResTemplate';
 
 export interface PermissionRequest {
-  phoneNumber: string;
+  phone: string;
   joinTime: string;
   group: string;
   role: string;

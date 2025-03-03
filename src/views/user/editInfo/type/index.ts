@@ -19,7 +19,7 @@ export interface UserInfo {
 }
 
 export interface PermissionFormInfo {
-  phoneNumber: string;
+  phone: string;
   joinTime: string;
   group: string;
   role: string;  

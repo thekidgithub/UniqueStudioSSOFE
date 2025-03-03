@@ -34,7 +34,7 @@ const useEditStore = defineStore('edit', {
       email: '',
     },
     permissionFormInfo: {
-      phoneNumber: '',
+      phone: '',
       joinTime: '',
       group: '',
       role: '',
@@ -70,7 +70,7 @@ const useEditStore = defineStore('edit', {
           return;
         } else {
           const oPostData: PermissionRequest = {
-            phoneNumber: this.permissionFormInfo.phoneNumber,
+            phone: this.permissionFormInfo.phone,
             joinTime: this.permissionFormInfo.joinTime,
             group: this.permissionFormInfo.group,
             role: this.permissionFormInfo.role,
